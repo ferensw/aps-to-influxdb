@@ -1,5 +1,5 @@
 # aps-to-influxdb
-Docker file to put data from APSystems tot InfluxDB
+Docker file to put data from APSystems into InfluxDB
 
 Simple script and Docker file to pull data from APSystems API and put in an InfluxDB
 
