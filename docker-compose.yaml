@@ -1,0 +1,12 @@
+version: '3.2'
+
+services:
+  aps:
+    build: .
+    container_name: aps_to_influxdb
+    environment:
+      - ECU_ID=<ecu_id>
+      - INFLUXDB_HOST=
+      - INFLUXDB_PORT=8086
+      - INFLUXDB_DATABASE=apsystems
+      - TZ=Europe/Amsterdam
