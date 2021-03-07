@@ -10,8 +10,8 @@ from influxdb import InfluxDBClient
 
 APSYSTEMS_URL = 'http://api.apsystemsema.com:8073/apsema/v1/ecu/getPowerInfo'
 
-print("ECU ID: " + os.environ['ECU_ID'])
-print("Writing to influx database \"" + os.environ['INFLUXDB_DATABASE'] + "\" at " + os.environ['INFLUXDB_HOST'] + ":" + os.environ['INFLUXDB_PORT'])
+print("ECU ID: " + os.environ['ECU_ID'], flush=True)
+print("Writing to influx database \"" + os.environ['INFLUXDB_DATABASE'] + "\" at " + os.environ['INFLUXDB_HOST'] + ":" + os.environ['INFLUXDB_PORT'], flush=True)
 
 influx_client = InfluxDBClient(host=os.environ['INFLUXDB_HOST'], port=os.environ['INFLUXDB_PORT'], database=os.environ['INFLUXDB_DATABASE'])
 influx_client.create_database(os.environ['INFLUXDB_DATABASE'])
@@ -50,9 +50,9 @@ def getDataFromAPS():
 
 def log(message, exception):
     if exception is None:
-        print("[" + str(datetime.datetime.utcnow())+ "] " + message)
+        print("[" + str(datetime.datetime.utcnow())+ "] " + message, flush=True)
     else:
-        print("[" + str(datetime.datetime.utcnow())+ "] " + message, exception)
+        print("[" + str(datetime.datetime.utcnow())+ "] " + message, exception, flush=True)
 
 
 while True:

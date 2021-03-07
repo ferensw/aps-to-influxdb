@@ -4,6 +4,7 @@ services:
   aps:
     build: .
     container_name: aps_to_influxdb
+    restart: always
     environment:
       - ECU_ID=<ecu_id>
       - INFLUXDB_HOST=
