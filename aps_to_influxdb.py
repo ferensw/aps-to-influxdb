@@ -59,7 +59,11 @@ while True:
     aps_data = getDataFromAPS()
     if aps_data is None:
         log("APS status data is None", None)
-        time.sleep(60)
+        time.sleep(int(os.environ['SEND_DATA_INTERVAL']))
+        continue
+    if aps_data.get("code") == "0":
+        log(aps_data.get("msg"), None)
+        time.sleep(int(os.environ['SEND_DATA_INTERVAL']))
         continue
     timesstring = aps_data.get("data").get("time")
     powersstring = aps_data.get("data").get("power")
