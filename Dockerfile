@@ -1,6 +1,10 @@
 FROM python:alpine3.8
 
 WORKDIR /app
+
+RUN apk update && \
+    apk add --no-cache tzdata
+
 COPY requirements.txt /app
 RUN pip3 install -r requirements.txt
 
